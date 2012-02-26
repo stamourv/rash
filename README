@@ -1,0 +1,50 @@
+rash - an attempt at capturing what I like about bash, as a #lang
+
+----------------------------------------------------------------------
+
+Motivation
+
+As misshapen a language as it is, bash really is the right tool for
+some jobs. For quick an dirty scripting, it's really hard to beat.
+
+I don't really have a concrete explanation as to why that is, but I'll
+try to pin it down as I go along. For now, here's what I have:
+  - your standard library is your $PATH
+  - interaction with the filesystem is really lightweight
+  - mostly implicit handling of I/O streams
+
+----------------------------------------------------------------------
+
+What it's currently trying to do
+
+For now, I'm trying to see what the $PATH as the standard library
+would look like in Racket. The goal is to be able to do something like
+
+    (mv "old" "new")
+
+and have it work. For commands that are executed for side-effect,
+that's straightforward. For commands that deal with std{in,out,err},
+more thought is necessary to get something as nice as bash.
+
+----------------------------------------------------------------------
+
+What could be hacked on
+
+It would be nice to have the Racket list comprehensions be able to
+implicitly iterate on files, something like
+
+    (for ([f "subdir/*"]) ...)
+
+----------------------------------------------------------------------
+
+What remains to be figured out
+
+How to handle streams (std{in,out,err}) in as lightweight a way as
+bash. This includes redirection, and all.
+
+This raises the following question: What is the functional
+interpretation of bash commands? bash commands kinda take two kinds of
+arguments: command-line arguments, and stdin. Similarly, they kinda
+produce multiple kinds of outputs: return code, stout and stderr.
+Having to manage stream piping explicitly (w.g. `with-input-from-X')
+is unsatisfactory.
