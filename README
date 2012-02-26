@@ -48,3 +48,8 @@ arguments: command-line arguments, and stdin. Similarly, they kinda
 produce multiple kinds of outputs: return code, stout and stderr.
 Having to manage stream piping explicitly (w.g. `with-input-from-X')
 is unsatisfactory.
+
+What's the right implicit coercion story? In bash, everthing is a
+string. I guess we may want to implicitly coerce to string anything
+that's passed to a bash command. What do we do in cases where
+non-trivial serialization is necessary?
