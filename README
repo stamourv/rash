@@ -2,6 +2,16 @@ rash - an attempt at capturing what I like about bash, as a #lang
 
 ----------------------------------------------------------------------
 
+How to use
+
+From inside the rash directory:
+
+    raco link .
+    raco setup rash # optional
+    racket -I rash
+
+----------------------------------------------------------------------
+
 Motivation
 
 As misshapen a language as it is, bash really is the right tool for
