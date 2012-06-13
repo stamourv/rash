@@ -5,9 +5,9 @@
 (define-syntax-rule (->string e)
   (with-output-to-string (lambda () e)))
 
-(check-equal? (->string (displayln (+ 1 2 3))) ; regular function call
-              "6\n")
-(check-equal? (->string (echo "a" "b" "c"))
-              "a b c\n")
-(check-equal? (->string (ls "test.rkt"))
-              "test.rkt\n")
+(check-equal? (+ 1 2 3) ; regular function calls should still work
+              6)
+(check-equal? (echo "a" "b" "c")
+              '("a b c"))
+(check-equal? (ls "test.rkt" "main.rkt")
+              '("main.rkt" "test.rkt"))
