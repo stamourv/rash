@@ -2,13 +2,21 @@ rash - an attempt at capturing what I like about bash, as a #lang
 
 ----------------------------------------------------------------------
 
-How to use
+How to install
 
 From inside the rash directory:
 
     raco link .
     raco setup rash # optional
+
+
+How to use
+
+  To get a REPL:
     racket -I rash
+
+  In a module:
+    #lang rash
 
 ----------------------------------------------------------------------
 
