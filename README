@@ -4,7 +4,11 @@ rash - an attempt at capturing what I like about bash, as a #lang
 
 How to install
 
-From inside the rash directory:
+On Racket v6.0 and on (inside the rash directory):
+
+    raco pkg install
+
+On versions before v6.0:
 
     raco link .
     raco setup rash # optional
